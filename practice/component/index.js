@@ -1,5 +1,5 @@
 // import './define'
 // import './extend'
 // import './v-model'
-import './features'
-// import './render'
+// import './features'
+import './render'
