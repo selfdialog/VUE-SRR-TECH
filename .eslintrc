@@ -5,6 +5,7 @@
   ],
   "parser": "babel-eslint",
   "rules": {
-    "no-new": "off"
+    "no-new": "off",
+    "quotes": [1, "single"] //引号类型 `` "" ''
   }
 }

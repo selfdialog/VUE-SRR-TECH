@@ -21,6 +21,9 @@ const devServer = {
     // 错误显示到网页上
     errors: true
   },
+  historyApiFallback: {
+    index: '/public/index.html'
+  },
   hot: true
 }
 let config

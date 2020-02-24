@@ -4,7 +4,7 @@ import '../assets/styles/footer.styl'
 export default {
   data () {
     return {
-      author: 'Sel11fDialog'
+      author: 'SelfDialog'
     }
   },
   render () {
