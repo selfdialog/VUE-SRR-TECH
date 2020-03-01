@@ -14,6 +14,12 @@ Vue.use(Vuex)
 const router = createRouter()
 const store = createStore()
 
+store.registerModule('c', {
+  state: {
+    text: 3
+  }
+})
+
 router.beforeEach((to, from, next) => {
   console.log('before each invoked')
   next()
@@ -33,11 +39,11 @@ router.afterEach((to, from) => {
   console.log('after each invoked')
 })
 
-const root = document.createElement('div')
-document.body.appendChild(root)
+// const root = document.createElement('div')
+// document.body.appendChild(root)
 
 new Vue({
   router,
   store,
   render: (h) => h(App)
-}).$mount(root)
+}).$mount('#root')

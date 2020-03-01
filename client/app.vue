@@ -3,6 +3,7 @@
     <div id="cover"></div>
     <Header></Header>
     <p>{{fullName}} {{counter}}</p>
+    <!-- <p>{{textC}} {{textPlus}}</p> -->
     <router-link to="/app/123">app123</router-link>
     <router-link to="/app/456">app456</router-link>
     <router-link to="/login">login</router-link>
@@ -15,7 +16,7 @@
 
 <script>
 import {
-  mapState
+  mapState, mapMutations, mapActions, mapGetters
   // mapGetters
 } from 'vuex'
 import Header from './layout/header.vue'
@@ -34,22 +35,40 @@ export default {
     return {}
   },
   mounted () {
-    console.log(this.$store)
-    let i = 1
-    setInterval(() => {
-      this.$store.commit('updateCount', i++)
-    }, 1000)
+    console.log(this.$store, this['a/textPlus'])
+    // let i = 1
+
+    // this.testAction()
+    /* this.updateCountAsync({
+      num: 5,
+      time: 2000
+    }) */
+    // this['a/updateText']('123')
+    // this['a/add']()
+    // setInterval(() => {
+    //   this.updateCount({
+    //     num: i++,
+    //     num2: 2
+    //   })
+    // }, 1000)
+  },
+  methods: {
+    ...mapActions(['updateCountAsync']),
+    ...mapMutations(['updateCount'])
   },
   computed: {
     ...mapState({
       counter: (state) => state.count
     }),
+    ...mapGetters({
+      'fullName': 'fullName'
+    })
     /* count () {
       return this.$store.state.count
     }, */
-    fullName () {
+    /* fullName () {
       return this.$store.getters.fullName
-    }
+    } */
   }
 }
 </script>
