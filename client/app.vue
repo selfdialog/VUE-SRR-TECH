@@ -26,6 +26,9 @@ import Footer from './layout/footer.jsx'
 // console.log(Header.__docs)
 
 export default {
+  metaInfo: {
+    title: 'Self Dialog\'s Todo app'
+  },
   components: {
     Header,
     Footer
