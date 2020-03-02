@@ -27,6 +27,8 @@ const devServer = {
     // 错误显示到网页上
     errors: true
   },
+  // 允许跨域
+  headers: { 'Access-Control-Allow-Origin': '*' },
   historyApiFallback: {
     index: '/public/index.html'
   },

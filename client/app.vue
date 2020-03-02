@@ -10,8 +10,9 @@
     <transition name="fade" mode="out-in">
       <router-view />
     </transition>
+    <button @click="notify">click me1</button>
 
-    <notification content="test notify" />
+    <!-- <notification content="test notify" /> -->
     <Footer></Footer>
   </div>
 </template>
@@ -40,7 +41,11 @@ export default {
     return {}
   },
   mounted () {
-    console.log(this.$store, this['a/textPlus'])
+    this.$notify({
+      content: 'test $notify',
+      btn: 'close'
+    })
+    // console.log(this.$store, this['a/textPlus'])
     // let i = 1
 
     // this.testAction()
@@ -59,7 +64,13 @@ export default {
   },
   methods: {
     ...mapActions(['updateCountAsync']),
-    ...mapMutations(['updateCount'])
+    ...mapMutations(['updateCount']),
+    notify () {
+      this.$notify({
+        content: 'test $notify',
+        btn: 'close'
+      })
+    }
   },
   computed: {
     ...mapState({
