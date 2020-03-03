@@ -1,6 +1,11 @@
 <script>
 export default {
   name: 'Tabs',
+  /* provide () {
+    return {
+      value: this.value
+    }
+  }, */
   props: {
     value: {
       type: [String, Number],
@@ -20,7 +25,9 @@ export default {
     )
   },
   methods: {
-
+    onChange (index) {
+      this.$emit('change', index)
+    }
   }
 }
 </script>
