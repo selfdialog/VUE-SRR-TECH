@@ -12,6 +12,9 @@ export default {
     }
   },
   // inject: ['value'],
+  mounted () {
+    this.$parent.panes.push(this)
+  },
   computed: {
     active () {
       // 父级的tabs传来的value

@@ -1,4 +1,5 @@
 <script>
+import TabContainer from './tab-container.vue'
 export default {
   name: 'Tabs',
   /* provide () {
@@ -6,6 +7,9 @@ export default {
       value: this.value
     }
   }, */
+  components: {
+    TabContainer
+  },
   props: {
     value: {
       type: [String, Number],
@@ -13,7 +17,9 @@ export default {
     }
   },
   data () {
-
+    return {
+      panes: []
+    }
   },
   render () {
     return (
@@ -21,6 +27,7 @@ export default {
         <ul class="tabs-header">
           {this.$slots.default}
         </ul>
+        <tab-container panes={this.panes}></tab-container>
       </div>
     )
   },

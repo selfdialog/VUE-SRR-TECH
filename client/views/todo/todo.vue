@@ -1,10 +1,9 @@
 <template>
   <section class="real-app">
     <div class="tab-container">
-      <tabs :value="tabValue" @change="handleChangeTab">
-        <tab label="tab1" index="1"></tab>
-        <tab index="2"> <span slot="label" style="color: red;">tab2</span></tab>
-        <tab label="tab3" index="3"></tab>
+      <tabs :value="filter" @change="handleChangeTab">
+        <tab :label="tab" :index="tab" v-for="tab in states" :key="tab">
+        </tab>
       </tabs>
     </div>
 
@@ -20,7 +19,6 @@
     <helper
       :filter="filter"
       :todos="todos"
-      @toggle="toggleFilter"
       @clearAllCompleted="clearAllCompleted"
     />
   </section>
@@ -28,7 +26,7 @@
 
 <script>
 import Item from './item.vue'
-import Helper from './tabs.vue'
+import Helper from './helper.vue'
 
 let id = 0
 export default {
@@ -42,7 +40,7 @@ export default {
     return {
       todos: [],
       filter: 'all',
-      tabValue: '2'
+      states: ['all', 'active', 'completed']
     }
   },
   components: {
@@ -78,14 +76,11 @@ export default {
         1
       )
     },
-    toggleFilter (state) {
-      this.filter = state
-    },
     clearAllCompleted () {
       this.todos = this.todos.filter(todo => !todo.completed)
     },
     handleChangeTab (value) {
-      this.tabValue = value
+      this.filter = value
     }
   }
 }
